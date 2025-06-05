@@ -1,7 +1,10 @@
+using EntitiesFitness;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContextFactory<SqliteContext>();
 
 var app = builder.Build();
 
@@ -22,6 +25,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=NomExercice}/{action=ListeNomExercice}/{id?}");
 
 app.Run();

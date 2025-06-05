@@ -1,0 +1,105 @@
+﻿@using EntitiesFitness
+@model List<NomExercice>
+
+<h1>Page NomExercice</h1>
+<button class="btn btn-primary" onclick="ModalCreateNomExercice()">
+    Créer un exercice
+</button>
+<div class="modal fade" id="maModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body" id="contenuModal">
+                <!-- _CreateNomExercicePartial -->
+                <!-- _EditNomExercicePartial -->
+            </div>
+        </div>
+    </div>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Muscle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (NomExercice e in Model)
+        {
+            <tr>
+                <td>@e.Nom</td>
+                <td>@e.Muscle.Nom</td>
+                <td>
+                    <button class="btn btn-primary" onclick="ModalEditNomExercice(@e.Id)">
+                        Modifier
+                    </button>
+                </td>
+                <td>
+                    <form asp-action="DeleteNomExercice" method="post">
+                        <input type="hidden" name="Id" asp-for="@e.Id" />
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet exercice ?')">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts {
+    <script>
+        function ModalCreateNomExercice(){
+            $.get('/NomExercice/CreateNomExercice', function (data) {
+                $('#contenuModal').html(data);
+                $('#maModal').modal('show');
+
+                $.validator.unobtrusive.parse('#formCreateNomExercice');
+            });
+        }
+        $(document).on('submit','#formCreateNomExercice', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (res) {
+                    if (res.success) {
+                        $('#maModal').modal('hide');
+                        alert("L'exercice a bien été créer !");
+                    } else {
+                        $('#contenuModal').html(res);
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        function ModalEditNomExercice(id){
+            $.get('/NomExercice/EditNomExercice/' + id, function (data) {
+                $('#contenuModal').html(data);
+                $('#maModal').modal('show');
+
+                $.validator.unobtrusive.parse('#formEditNomExercice');
+            });
+        }
+        $(document).on('submit','#formEditNomExercice', function(e) {
+            e.preventDefault();
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (res) {
+                    if (res.success) {
+                        $('#maModal').modal('hide');
+                        alert("L'exercice a bien été modifier !");
+                    } else {
+                        $('#contenuModal').html(res);
+                    }
+                }
+            });
+        });
+    </script>
+}
+
+
+
+
+
+

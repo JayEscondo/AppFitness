@@ -1,0 +1,5 @@
+﻿Commande PC Portable
+dotnet ef dbcontext scaffold "Data Source=C:\Temp\Github\WebAppFitness\DbFitness\DbFitness.db" "Microsoft.EntityFrameworkcore.sqlite" -f -o Entities -n EntitiesFitness -c SqliteContext
+
+Commande PC fixe
+dotnet ef dbcontext scaffold "Data Source=G:\Github\AppFitness\DbFitness\DbFitness.db" "Microsoft.EntityFrameworkcore.sqlite" -f -o Entities -n EntitiesFitness -c SqliteContext
