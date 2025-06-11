@@ -1,0 +1,48 @@
+﻿@using EntitiesFitness
+@using EntityFitness.MyEntities
+@model SeanceExercice
+
+<h1>Page Seance</h1>
+<form asp-action="CreateSeance" method="post">
+    <div>
+        <label asp-for="Seance.NomSeance.Nom">Nom</label>
+        <input asp-for="Seance.NomSeance.Nom" />
+        <span asp-validation-for="Seance.NomSeance.Nom" class="text-danger"></span>
+    </div>
+    <div id="exo-container">
+        <label asp-for="exo">Choix des exercices</label>
+        <span asp-validation-for="exo" class="text-danger"></span>
+        <div class="exo-select mb-2">
+            <select class="form-select"
+                    name="exo[0]" asp-items="@ViewBag.listeExo">
+                <option>-- choisir un exercice --</option>
+            </select>
+        </div>
+    </div>
+    <div>
+        <button type="button"class="btn btn-secondary" onclick="ajouterExercice()">Ajouter un exercice</button>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="button" class="btn btn-danger">Annuler</button>
+    </div>
+</form>
+@section Scripts {
+    <script>
+        let index = 1;
+
+        function ajouterExercice(){
+            const container = document.getElementById('exo-container');
+
+            const firstSelect = container.querySelector('.exo-select');
+            const newSelectDiv = firstSelect.cloneNode(true);
+
+            const newSelect = newSelectDiv.querySelector('select');
+            newSelect.name = `exo[${index}]`;
+            newSelect.selectedIndex = 0;
+
+            container.appendChild(newSelectDiv);
+            index++;
+        }
+    </script>
+}

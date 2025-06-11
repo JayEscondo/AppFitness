@@ -7,7 +7,7 @@ public partial class Exercice
 {
     public int Id { get; set; }
 
-    public string Date { get; set; } = null!;
+    public string? Date { get; set; }
 
     public int NomExerciceId { get; set; }
 

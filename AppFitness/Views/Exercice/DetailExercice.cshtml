@@ -1,0 +1,21 @@
+﻿@using EntitiesFitness
+@model List<Exercice>
+
+<h1>Page DetailExercice</h1>
+
+<div>
+    <h4>@ViewBag.nomExo</h4>
+    @foreach (Exercice e in Model)
+    {
+        <div>
+            <dl class="row">
+                <dt class="col-sm-2">Date</dt>
+                <dd class="col-sm-10">@e.Date</dd>
+                <dt class="col-sm-2">Poids</dt>
+                <dd class="col-sm-10">@e.Serie.Poids</dd>
+                <dt class="col-sm-2">Répétitions</dt>
+                <dd class="col-sm-10">@e.Serie.Rep</dd>
+            </dl>
+        </div>
+    }
+</div>

@@ -1,0 +1,37 @@
+﻿@using EntitiesFitness
+@model List<Exercice>
+
+<h1>Page ListeExercice</h1>
+<a role="button" class="btn btn-primary" asp-controller="Exercice" asp-action="CreateExercice">Créer un exercice</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Muscle</th>
+            <th scope="col">Répétision</th>
+            <th scope="col">Poids(kg)</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Exercice e in Model)
+        {
+        <tr>
+            <td scope="row">@e.NomExercice.Nom</td>
+            <td>@e.NomExercice.Muscle.Nom</td>
+            <td>@e.Serie.Rep</td>
+            <td>@e.Serie.Poids</td>
+            <td><a role="button" class="btn btn-primary" asp-action="EditExercice" asp-route-id="@e.NomExerciceId">Modifier</a></td>
+            <td><a role="button" class="btn btn-secondary" asp-action="DetailExercice" asp-route-id="@e.NomExerciceId">Detail</a></td>
+            <td>
+                <form asp-action="DeleteExercice" method="post">
+                    <input type="hidden" name="Id" asp-for="@e.Id" />
+                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet exercice ?')">Supprimer</button>
+                </form>
+            </td>
+        </tr> 
+        }
+    </tbody>
+</table>

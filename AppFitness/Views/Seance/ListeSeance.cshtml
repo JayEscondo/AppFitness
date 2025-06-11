@@ -1,0 +1,23 @@
+﻿@using EntitiesFitness
+@model List<Seance>
+
+<h1>Page Seance</h1>
+<a asp-controller="Seance" asp-action="CreateSeance" class="btn btn-primary">
+    Créer une séance
+</a>
+@foreach (Seance s in Model)
+{
+    <div class="p-3">
+        <div>@s.NomSeance.Nom</div>
+        <div>
+            <button asp-action="EditSeance">
+                Modifier
+            </button>
+            <form asp-action="DeleteSeance">
+                <button asp-action="">
+                    Supprimer
+                </button>
+            </form>
+        </div>
+    </div>
+}

@@ -45,7 +45,7 @@ public partial class SqliteContext : DbContext
 
             entity.HasIndex(e => e.Id, "IX_Exercice_Id").IsUnique();
 
-            entity.Property(e => e.Date).HasDefaultValue("-");
+            entity.Property(e => e.Date).HasDefaultValue("00/00/0000");
             entity.Property(e => e.NomExerciceId).HasColumnName("NomExercice_Id");
             entity.Property(e => e.SerieId)
                 .HasDefaultValue(1)
@@ -137,6 +137,9 @@ public partial class SqliteContext : DbContext
             entity.ToTable("Serie");
 
             entity.HasIndex(e => e.Id, "IX_Serie_Id").IsUnique();
+
+            entity.Property(e => e.Poids).HasDefaultValue(0.0);
+            entity.Property(e => e.Rep).HasDefaultValue(0);
         });
 
         modelBuilder.Entity<User>(entity =>
