@@ -20,13 +20,13 @@ namespace AppFitness.Controllers
                 .Include(n => n.NomSeance)
                 .ToList();
             int index = 0;
-            for (int i = 1; i < liste.Count;) 
+            for (int i = 1; i < liste.Count;)
             {
                 if (liste[index].NomSeanceId == liste[i].NomSeanceId)
                 {
                     liste.Remove(liste[i]);
                 }
-                else 
+                else
                 {
                     index = i;
                     i++;
@@ -37,7 +37,7 @@ namespace AppFitness.Controllers
         }
 
         [HttpGet]
-        public IActionResult CreateSeance() 
+        public IActionResult CreateSeance()
         {
             List<Exercice> listeExo = _context.Exercices
                 .Include(n => n.NomExercice.Muscle)
@@ -45,9 +45,9 @@ namespace AppFitness.Controllers
                 .OrderBy(o => o.Id)
                 .ToList();
             List<SelectListItem> s = new List<SelectListItem>();
-            foreach (Exercice e in listeExo) 
+            foreach (Exercice e in listeExo)
             {
-                s.Add(new SelectListItem() 
+                s.Add(new SelectListItem()
                 {
                     Text = $"{e.NomExercice.Nom} ({e.NomExercice.Muscle.Nom})",
                     Value = e.Id.ToString(),
@@ -57,7 +57,7 @@ namespace AppFitness.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateSeance(SeanceExercice se) 
+        public IActionResult CreateSeance(SeanceExercice se)
         {
             NomSeance ns = new NomSeance();
             Seance s = new Seance();
@@ -72,7 +72,7 @@ namespace AppFitness.Controllers
             NomSeance recherche = _context.NomSeances
                 .FirstOrDefault(m => m.Nom == ns.Nom);
             int IdNomExercice = recherche.Id;
-            foreach (int e in se.exo) 
+            foreach (int e in se.exo)
             {
                 s.NomSeanceId = IdNomExercice;
                 s.ExerciceId = e;
@@ -81,6 +81,38 @@ namespace AppFitness.Controllers
                 s = new Seance();
             }
             return RedirectToAction("ListeSeance");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteSeance(int id)
+        {
+            Seance s = _context.Seances.Find(id);
+            NomSeance nomSeance = _context.NomSeances
+                .FirstOrDefault(n => n.Id == s.NomSeanceId);
+            _context.Seances.Remove(s);
+            _context.SaveChanges();
+            _context.NomSeances.Remove(nomSeance);
+            _context.SaveChanges();
+            ViewBag.Message = "La séance a bien été supprimer";
+            return RedirectToAction("ListeSeance");
+        }
+
+        [HttpGet]
+        public IActionResult DetailSeance(int id) 
+        {
+            List<Seance> listeSeance = _context.Seances
+                .Include(c => c.NomSeance)
+                .Include(e => e.Exercice)
+                .Include(n => n.Exercice.NomExercice)
+                .Include(r => r.Exercice.Serie)
+                .Where(s => s.NomSeanceId == id)
+                .ToList();
+            List<Serie> listeSerie = _context.Series
+                .ToList();
+            SeanceSerie ss = new SeanceSerie();
+            ss.listeSeance = listeSeance;
+            ss.listeSerie = listeSerie;
+            return View(ss);
         }
     }
 }

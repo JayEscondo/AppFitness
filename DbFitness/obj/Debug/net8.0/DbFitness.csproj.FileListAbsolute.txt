@@ -1,0 +1,12 @@
+C:\Temp\Github\AppFitness\DbFitness\bin\Debug\net8.0\DbFitness.deps.json
+C:\Temp\Github\AppFitness\DbFitness\bin\Debug\net8.0\DbFitness.dll
+C:\Temp\Github\AppFitness\DbFitness\bin\Debug\net8.0\DbFitness.pdb
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.AssemblyInfoInputs.cache
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.AssemblyInfo.cs
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.csproj.CoreCompileInputs.cache
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.sourcelink.json
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.dll
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\refint\DbFitness.dll
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\DbFitness.pdb
+C:\Temp\Github\AppFitness\DbFitness\obj\Debug\net8.0\ref\DbFitness.dll

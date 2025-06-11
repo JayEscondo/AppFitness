@@ -45,11 +45,12 @@ namespace AppFitness.Controllers
         [HttpGet]
         public IActionResult CreateExercice() 
         {
-            List<Muscle> listMuscle = _context.Muscles.
+
+            List<NomExercice> listExo = _context.NomExercices.
                OrderBy(m => m.Nom).
                ToList();
             List<SelectListItem> selectListItem = new List<SelectListItem>();
-            foreach (Muscle m in listMuscle)
+            foreach (NomExercice m in listExo)
             {
                 selectListItem.Add(new SelectListItem()
                 {
@@ -57,7 +58,20 @@ namespace AppFitness.Controllers
                     Value = m.Id.ToString()
                 });
             }
-            ViewBag.listeMuscle = selectListItem;
+            ViewBag.listeExo = selectListItem;
+            List<Muscle> listMuscle = _context.Muscles.
+               OrderBy(m => m.Nom).
+               ToList();
+            List<SelectListItem> selectListItem1 = new List<SelectListItem>();
+            foreach (Muscle m in listMuscle)
+            {
+                selectListItem1.Add(new SelectListItem()
+                {
+                    Text = $"{m.Nom}",
+                    Value = m.Id.ToString()
+                });
+            }
+            ViewBag.listeMuscle = selectListItem1;
             return View();
         }
 
@@ -77,10 +91,11 @@ namespace AppFitness.Controllers
                 });
             }
             ViewBag.listeMuscle = selectListItem;
-            bool doublon = _context.NomExercices.Any(d => d == e);
+            bool doublon = _context.NomExercices.Any(d => d.Nom == e.Nom);
             if (doublon)
             {
-                return RedirectToAction("ListeExecice");
+                ViewBag.Message = "Cet exercice existe !";
+                return View(e);
             }
             _context.NomExercices.Add(e);
             _context.SaveChanges();

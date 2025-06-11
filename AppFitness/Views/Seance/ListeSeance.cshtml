@@ -5,19 +5,39 @@
 <a asp-controller="Seance" asp-action="CreateSeance" class="btn btn-primary">
     Créer une séance
 </a>
-@foreach (Seance s in Model)
-{
-    <div class="p-3">
-        <div>@s.NomSeance.Nom</div>
-        <div>
-            <button asp-action="EditSeance">
-                Modifier
-            </button>
-            <form asp-action="DeleteSeance">
-                <button asp-action="">
-                    Supprimer
-                </button>
-            </form>
-        </div>
-    </div>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope ="col">Nom de la séance</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Seance s in Model)
+        {
+            <tr>
+                <th scope="row">
+                    @s.NomSeance.Nom
+                </th>
+                <td>
+                    <button class="btn btn-primary" asp-action="EditSeance">
+                        Modifier
+                    </button>
+                </td>
+                <td>
+                    <a class="btn btn-secondary" asp-action="DetailSeance" asp-route-id="@s.NomSeanceId" >Détail</a>
+                </td>
+                <td>
+                    <form asp-action="DeleteSeance">
+                        <button class="btn btn-danger" asp-action="">
+                            Supprimer
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

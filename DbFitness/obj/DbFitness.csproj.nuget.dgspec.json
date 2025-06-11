@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Github\\AppFitness\\DbFitness\\DbFitness.csproj": {}
+    "C:\\Temp\\Github\\AppFitness\\DbFitness\\DbFitness.csproj": {}
   },
   "projects": {
-    "G:\\Github\\AppFitness\\DbFitness\\DbFitness.csproj": {
+    "C:\\Temp\\Github\\AppFitness\\DbFitness\\DbFitness.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Github\\AppFitness\\DbFitness\\DbFitness.csproj",
+        "projectUniqueName": "C:\\Temp\\Github\\AppFitness\\DbFitness\\DbFitness.csproj",
         "projectName": "DbFitness",
-        "projectPath": "G:\\Github\\AppFitness\\DbFitness\\DbFitness.csproj",
-        "packagesPath": "C:\\Users\\John\\.nuget\\packages\\",
-        "outputPath": "G:\\Github\\AppFitness\\DbFitness\\obj\\",
+        "projectPath": "C:\\Temp\\Github\\AppFitness\\DbFitness\\DbFitness.csproj",
+        "packagesPath": "C:\\Users\\jjeoh\\.nuget\\packages\\",
+        "outputPath": "C:\\Temp\\Github\\AppFitness\\DbFitness\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\John\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jjeoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -45,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
@@ -66,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
