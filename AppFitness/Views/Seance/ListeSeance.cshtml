@@ -1,43 +1,69 @@
 ﻿@using EntitiesFitness
 @model List<Seance>
 
-<h1>Page Seance</h1>
-<a asp-controller="Seance" asp-action="CreateSeance" class="btn btn-primary">
-    Créer une séance
-</a>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope ="col">Nom de la séance</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Seance s in Model)
-        {
-            <tr>
-                <th scope="row">
-                    @s.NomSeance.Nom
-                </th>
-                <td>
-                    <button class="btn btn-primary" asp-action="EditSeance">
-                        Modifier
-                    </button>
-                </td>
-                <td>
-                    <a class="btn btn-secondary" asp-action="DetailSeance" asp-route-id="@s.NomSeanceId" >Détail</a>
-                </td>
-                <td>
-                    <form asp-action="DeleteSeance">
-                        <button class="btn btn-danger" asp-action="">
-                            Supprimer
-                        </button>
-                    </form>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h1 class="text-center rounded-3 text-light btn-color2 p-4">Entraînements</h1>
+<br/>
+<a asp-controller="Seance" asp-action="CreateSeance" class="btn btn-success">
+    + Créer une nouvelle séance
+</a><br />
+<br/>
+<div class="grid1">
+    @foreach (Seance s in Model)
+    {
+        <div class="grid1-item custom-grid">
+            <div class="text-background">@s.NomSeance.Nom</div>
+            <button class="btn btn-color4" asp-action="EditSeance">
+                Voir la séance
+            </button>
+        </div>
+    }
+</div>
+<style>
+    .grid1{
+        display: grid;
+        grid-template-columns: 30% 30% 30%;
+        height: 200px;
+        gap: 40px;
+        align-content: space-between;
+    }
 
+    .grid1-item {
+        border: 1px solid #ddd;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+        border-radius: 10px;
+    }
+
+    /* Fond derrière le texte */
+    .grid1-item .text-background {
+        font-size: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .custom-grid {
+        background-image: url(../Images/Background1.png); /* Chemin de ton image */
+        background-size: cover; /* Ajuste la taille de l'image */
+        background-position: 0px -110px; /* Centre l'image */
+        background-repeat: no-repeat; /* Empêche la répétition */
+    }
+
+    .btn-dark {
+        background-color: darkcyan ;
+        color: #ffffff;
+        border: 1px solid #333;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-dark:hover {
+        background-color: #333;
+    }
+
+</style>

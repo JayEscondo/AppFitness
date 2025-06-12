@@ -3274,23 +3274,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jjeoh\\.nuget\\packages\\": {},
+    "C:\\Users\\John\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Temp\\Github\\AppFitness\\AppFitness\\AppFitness.csproj",
+      "projectUniqueName": "G:\\Github\\AppFitness\\AppFitness\\AppFitness.csproj",
       "projectName": "AppFitness",
-      "projectPath": "C:\\Temp\\Github\\AppFitness\\AppFitness\\AppFitness.csproj",
-      "packagesPath": "C:\\Users\\jjeoh\\.nuget\\packages\\",
-      "outputPath": "C:\\Temp\\Github\\AppFitness\\AppFitness\\obj\\",
+      "projectPath": "G:\\Github\\AppFitness\\AppFitness\\AppFitness.csproj",
+      "packagesPath": "C:\\Users\\John\\.nuget\\packages\\",
+      "outputPath": "G:\\Github\\AppFitness\\AppFitness\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jjeoh\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\John\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3306,8 +3306,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Temp\\Github\\AppFitness\\EntityFitness\\EntityFitness.csproj": {
-              "projectPath": "C:\\Temp\\Github\\AppFitness\\EntityFitness\\EntityFitness.csproj"
+            "G:\\Github\\AppFitness\\EntityFitness\\EntityFitness.csproj": {
+              "projectPath": "G:\\Github\\AppFitness\\EntityFitness\\EntityFitness.csproj"
             }
           }
         }
@@ -3322,7 +3322,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.200"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -3358,7 +3358,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

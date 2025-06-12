@@ -49,8 +49,11 @@ namespace AppFitness.Controllers
             List<NomExercice> listExo = _context.NomExercices.
                OrderBy(m => m.Nom).
                ToList();
+            List<Muscle> listMuscle = _context.Muscles.
+               OrderBy(m => m.Nom).
+               ToList();
             List<SelectListItem> selectListItem = new List<SelectListItem>();
-            foreach (NomExercice m in listExo)
+            foreach (Muscle m in listMuscle)
             {
                 selectListItem.Add(new SelectListItem()
                 {
@@ -58,20 +61,7 @@ namespace AppFitness.Controllers
                     Value = m.Id.ToString()
                 });
             }
-            ViewBag.listeExo = selectListItem;
-            List<Muscle> listMuscle = _context.Muscles.
-               OrderBy(m => m.Nom).
-               ToList();
-            List<SelectListItem> selectListItem1 = new List<SelectListItem>();
-            foreach (Muscle m in listMuscle)
-            {
-                selectListItem1.Add(new SelectListItem()
-                {
-                    Text = $"{m.Nom}",
-                    Value = m.Id.ToString()
-                });
-            }
-            ViewBag.listeMuscle = selectListItem1;
+            ViewBag.listeMuscle = selectListItem;
             return View();
         }
 

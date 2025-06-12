@@ -1,9 +1,9 @@
 ﻿@using EntitiesFitness
 @model List<Exercice>
 
-<h1>Page DetailExercice</h1>
+<h1 class="text-center rounded-3 text-light bg-dark p-4">Page DetailExercice</h1>
 
-<div>
+<div class="p-4 border rounded btn-color4">
     <h4>@ViewBag.nomExo</h4>
     @foreach (Exercice e in Model)
     {
@@ -16,6 +16,7 @@
                 <dt class="col-sm-2">Répétitions</dt>
                 <dd class="col-sm-10">@e.Serie.Rep</dd>
             </dl>
+            <a class="btn btn-primary" role="button" asp-action="ListeExercice">retour</a>
         </div>
     }
 </div>

@@ -1,27 +1,27 @@
 ﻿@using EntitiesFitness
 @model NomExercice
 
-<h1>Page CreateExercice</h1>
-<form id="formCreateExercice" asp-action="CreateExercice" method="post">
-    <div>
-        <label asp-for="Nom">Nom</label>
-        <input asp-for="Nom" type="text" />
-        <span asp-validation-for="Nom" class="text-danger"></span>
-    </div>
-    <div>
-        <label asp-for="MuscleId">Muscle</label>
-        <select asp-for="MuscleId" asp-items="@ViewBag.listeMuscle">
-            <option value="">-- Choisir un muscle --</option>
-        </select>
-        <span asp-validation-for="MuscleId" class="text-danger"></span>
-    </div>
-    <div>
-        <select size="10" asp-items="@ViewBag.listeExo">
-        </select>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-        <a role="button" asp-controller="Exercice" asp-action="ListeExercice" class="btn btn-secondary">Annuler</a>
-    </div>
-</form>
+<h1 class="text-center rounded-3 text-light bg-dark p-4">Création d'un exercice</h1>
+<div class="container mt-5">
+    <form class="p-4 border rounded btn-color4" id="formCreateExercice" asp-action="CreateExercice" method="post">
+        <div>
+            <label class ="text-black" asp-for="Nom">Nom</label>
+            <input class="form-control" asp-for="Nom" type="text" />
+            <span asp-validation-for="Nom" class="text-danger"></span>
+        </div>
+        <br/>
+        <div>
+            <label class="text-black" asp-for="MuscleId">Muscle</label>
+            <select class="form-select" asp-for="MuscleId" asp-items="@ViewBag.listeMuscle">
+                <option value="">-- Choisir un muscle --</option>
+            </select>
+            <span asp-validation-for="MuscleId" class="text-danger"></span>
+        </div>
+        <br/>
+        <div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a role="button" asp-controller="Exercice" asp-action="ListeExercice" class="btn btn-danger">Annuler</a>
+        </div>
+    </form>
+</div>
 

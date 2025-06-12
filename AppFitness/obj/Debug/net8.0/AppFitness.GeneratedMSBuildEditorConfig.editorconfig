@@ -9,81 +9,69 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = AppFitness
 build_property.RootNamespace = AppFitness
-build_property.ProjectDir = C:\Temp\Github\AppFitness\AppFitness\
+build_property.ProjectDir = G:\Github\AppFitness\AppFitness\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Temp\Github\AppFitness\AppFitness
+build_property.MSBuildProjectDirectory = G:\Github\AppFitness\AppFitness
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Exercice/CreateExercice.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Exercice/CreateExercice.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpY2VcQ3JlYXRlRXhlcmNpY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Exercice/DetailExercice.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Exercice/DetailExercice.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpY2VcRGV0YWlsRXhlcmNpY2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Exercice/EditExercice.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Exercice/EditExercice.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpY2VcRWRpdEV4ZXJjaWNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Exercice/ListeExercice.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Exercice/ListeExercice.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhlcmNpY2VcTGlzdGVFeGVyY2ljZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Home/Index.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Home/Privacy.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/NomExercice/ListeNomExercice.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9tRXhlcmNpY2VcTGlzdGVOb21FeGVyY2ljZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Temp/Github/AppFitness/AppFitness/Views/NomExercice/_CreateNomExercicePartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9tRXhlcmNpY2VcX0NyZWF0ZU5vbUV4ZXJjaWNlUGFydGlhbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Temp/Github/AppFitness/AppFitness/Views/NomExercice/_EditNomExercicePartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm9tRXhlcmNpY2VcX0VkaXROb21FeGVyY2ljZVBhcnRpYWwuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Temp/Github/AppFitness/AppFitness/Views/Seance/CreateSeance.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Seance/CreateSeance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhbmNlXENyZWF0ZVNlYW5jZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Seance/DetailSeance.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Seance/DetailSeance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhbmNlXERldGFpbFNlYW5jZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Seance/ListeSeance.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Seance/ListeSeance.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhbmNlXExpc3RlU2VhbmNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Shared/Error.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Shared/_ValidationScriptsPartial.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/_ViewImports.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/_ViewStart.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Temp/Github/AppFitness/AppFitness/Views/Shared/_Layout.cshtml]
+[G:/Github/AppFitness/AppFitness/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-vg8sna6vnz

@@ -1,28 +1,34 @@
 ﻿@using EntitiesFitness
 @model List<Exercice>
 
-<h1>Page ListeExercice</h1>
-<a role="button" class="btn btn-primary" asp-controller="Exercice" asp-action="CreateExercice">Créer un exercice</a>
+<h1 class="text-center rounded-3 text-light btn-color2 p-4">Liste d'exercices</h1>
+<div>
+    <br/>
+    <a role="button" class="btn btn-success" asp-controller="Exercice" asp-action="CreateExercice">
+        + Créer un exercice
+    </a>
+</div>
+<br/>
 <table class="table">
     <thead>
-        <tr>
-            <th scope="col">Nom</th>
-            <th scope="col">Muscle</th>
-            <th scope="col">Répétision</th>
-            <th scope="col">Poids(kg)</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+        <tr class="table-dark">
+            <th scope="col" class="btn-color4 text-black">Nom</th>
+            <th scope="col" class="btn-color4 text-black">Muscle</th>
+            <th scope="col" class="btn-color4 text-black">Répétition</th>
+            <th scope="col" class="btn-color4 text-black">Poids(kg)</th>
+            <th scope="col" class="btn-color4 text-black"></th>
+            <th scope="col" class="btn-color4 text-black"></th>
+            <th scope="col" class="btn-color4 text-black"></th>
         </tr>
     </thead>
     <tbody>
         @foreach (Exercice e in Model)
         {
         <tr>
-            <td scope="row">@e.NomExercice.Nom</td>
-            <td>@e.NomExercice.Muscle.Nom</td>
-            <td>@e.Serie.Rep</td>
-            <td>@e.Serie.Poids</td>
+            <td scope="row" class="text-white">@e.NomExercice.Nom</td>
+            <td class ="text-white">@e.NomExercice.Muscle.Nom</td>
+            <td class="text-white">@e.Serie.Rep</td>
+            <td class="text-white">@e.Serie.Poids</td>
             <td><a role="button" class="btn btn-primary" asp-action="EditExercice" asp-route-id="@e.NomExerciceId">Modifier</a></td>
             <td><a role="button" class="btn btn-secondary" asp-action="DetailExercice" asp-route-id="@e.NomExerciceId">Detail</a></td>
             <td>

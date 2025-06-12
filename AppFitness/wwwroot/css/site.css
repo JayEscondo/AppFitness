@@ -20,3 +20,90 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.backgroundimg1, .backgroundimg2 {
+    position: fixed; /* Pour que l'image reste fixe au scroll */
+    top: 0;
+    height: 100vh;
+    width: 50%;
+    background-image: url(../Images/Background3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* déjà présent */
+    z-index: 0; /* Derrière le contenu */
+}
+
+.backgroundimg1 {
+    left: 0; /* image à gauche */
+    background-position: left center;
+    transform: scaleX(-1);
+}
+
+.backgroundimg2 {
+    right: 0; /* image à droite */
+    background-position: right center;
+    transform: scaleX(1);
+}
+
+main {
+    position: relative; /* Pour s'assurer que z-index fonctionne */
+    z-index: 10; /* Au-dessus des images */
+    background-color: #222831ee; /* fond blanc */
+    margin: 0 auto;
+    max-width: 900px; /* largeur max du contenu */
+    padding: 20px 40px; /* espace intérieur */
+    box-sizing: border-box;
+    min-height: 100vh; /* pour prendre toute la hauteur */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* optionnel : léger ombrage */
+}
+.navbar {
+    position: fixed; /* ou sticky selon le besoin */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20; /* plus grand que main et background */
+    background-color: white; /* ou autre pour qu’elle soit visible */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* optionnel */
+}
+footer {
+    flex-shrink: 0;
+    background-color: #343a40;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+    position: relative;
+}
+.btn-dark {
+    background-color: darkcyan;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
+
+.btn-color1 {
+    background-color: #222831 !important;
+}
+.btn-color2 {
+    background-color: #393E46 !important;
+}
+.btn-color3 {
+    background-color: #948979 !important;
+}
+.btn-color4 {
+    background-color: #DFD0B8 !important;
+}
+

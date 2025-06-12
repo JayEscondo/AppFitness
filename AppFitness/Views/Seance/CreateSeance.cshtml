@@ -2,31 +2,35 @@
 @using EntityFitness.MyEntities
 @model SeanceExercice
 
-<h1>Page Seance</h1>
-<form asp-action="CreateSeance" method="post">
-    <div>
-        <label asp-for="Seance.NomSeance.Nom">Nom</label>
-        <input asp-for="Seance.NomSeance.Nom" />
-        <span asp-validation-for="Seance.NomSeance.Nom" class="text-danger"></span>
-    </div>
-    <div id="exo-container">
-        <label asp-for="exo">Choix des exercices</label>
-        <span asp-validation-for="exo" class="text-danger"></span>
-        <div class="exo-select mb-2">
-            <select class="form-select"
-                    name="exo[0]" asp-items="@ViewBag.listeExo">
-                <option>-- choisir un exercice --</option>
-            </select>
+<h1 class="text-center rounded-3 text-light btn-color2 p-4">Création d'une séance d'entraînement</h1>
+<div class="container mt-5">
+    <form class="p-4 rounded-3 btn-color4" asp-action="CreateSeance" method="post">
+        <div>
+            <label class="text-black" asp-for="Seance.NomSeance.Nom">Nom</label>
+            <input class="form-control" asp-for="Seance.NomSeance.Nom" />
+            <span asp-validation-for="Seance.NomSeance.Nom" class="text-danger"></span>
         </div>
-    </div>
-    <div>
-        <button type="button"class="btn btn-secondary" onclick="ajouterExercice()">Ajouter un exercice</button>
-    </div>
-    <div>
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-        <button type="button" class="btn btn-danger">Annuler</button>
-    </div>
-</form>
+        <br/>
+        <div id="exo-container">
+            <label class="text-black" asp-for="exo">Choix des exercices</label>
+            <div class="exo-select mb-2">
+                <select class="form-select"
+                        name="exo[0]" asp-items="@ViewBag.listeExo">
+                    <option>-- choisir un exercice --</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button type="button"class="btn btn-secondary" onclick="ajouterExercice()">Ajouter un exercice</button>
+        </div>
+        <span asp-validation-for="exo" class="text-danger"></span>
+        <br/>
+        <div>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a role="button" asp-action="listeSeance" class="btn btn-danger">Annuler</a>
+        </div>
+    </form>
+</div>
 @section Scripts {
     <script>
         let index = 1;

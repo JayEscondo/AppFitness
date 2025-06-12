@@ -1,22 +1,24 @@
 ﻿@using EntitiesFitness
 @model NomExercice
 
-<h1>Page EditExercice</h1>
-<form id="formEditExercice" asp-action="EditExercice" method="post">
+<h1 class="text-center rounded-3 text-light bg-dark p-4">Page EditExercice</h1>
+<form class="p-4 rounded-3 btn-color3" id="formEditExercice" asp-action="EditExercice" method="post">
     <div>
-        <label asp-for="Nom">Nom</label>
-        <input asp-for="Nom" type="text" />
+        <label class="text-white" asp-for="Nom">Nom</label>
+        <input class="form-control" asp-for="Nom" type="text" />
         <span asp-validation-for="Nom" class="text-danger"></span>
     </div>
+    <br/>
     <div>
-        <label asp-for="MuscleId">Muscle</label>
-        <select asp-for="MuscleId" asp-items="@ViewBag.listeMuscle">
+        <label class="text-white" asp-for="MuscleId">Muscle</label>
+        <select class="form-select" asp-for="MuscleId" asp-items="@ViewBag.listeMuscle">
             <option value="">-- Choisir un muscle --</option>
         </select>
         <span asp-validation-for="MuscleId" class="text-danger"></span>
     </div>
+    <br/>
     <div>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
-        <button type="button" class="btn btn-secondary">Annuler</button>
+        <a role="button" asp-action="ListeExercice" type="button" class="btn btn-danger">Annuler</a>
     </div>
 </form>
