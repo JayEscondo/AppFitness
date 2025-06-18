@@ -12,9 +12,9 @@
     {
         <div class="grid1-item custom-grid">
             <div class="text-background">@s.NomSeance.Nom</div>
-            <button class="btn btn-color4" asp-action="EditSeance">
+            <a role="button" class="btn btn-color4" asp-action="DetailSeance" asp-route-id="@s.NomSeanceId">
                 Voir la séance
-            </button>
+            </a>
         </div>
     }
 </div>

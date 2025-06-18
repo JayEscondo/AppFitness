@@ -20,7 +20,8 @@ namespace AppFitness.Controllers
                 .Include(m => m.NomExercice.Muscle)
                 .Include(s => s.Serie)                                
                 .GroupBy(e => e.NomExercice.Nom)
-                .Select(g => g.OrderByDescending(r => r.Serie.Rep * r.Serie.Poids).First())
+                .Select(g => g.OrderByDescending(r => r.Serie.Rep * r.Serie.Poids)
+                .First())
                 .ToList();
             return View(liste);
         }

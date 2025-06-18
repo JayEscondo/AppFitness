@@ -18,6 +18,7 @@ namespace AppFitness.Controllers
         {
             List<Seance> liste = _context.Seances
                 .Include(n => n.NomSeance)
+                .OrderBy(o => o.NomSeance)
                 .ToList();
             int index = 0;
             for (int i = 1; i < liste.Count;)
@@ -102,17 +103,13 @@ namespace AppFitness.Controllers
         {
             List<Seance> listeSeance = _context.Seances
                 .Include(c => c.NomSeance)
-                .Include(e => e.Exercice)
-                .Include(n => n.Exercice.NomExercice)
+                .Include(c => c.Exercice)
+                .Include(ne => ne.Exercice.NomExercice)
                 .Include(r => r.Exercice.Serie)
+                .OrderBy(a => a.Exercice.NomExercice.Nom)
                 .Where(s => s.NomSeanceId == id)
                 .ToList();
-            List<Serie> listeSerie = _context.Series
-                .ToList();
-            SeanceSerie ss = new SeanceSerie();
-            ss.listeSeance = listeSeance;
-            ss.listeSerie = listeSerie;
-            return View(ss);
+            return View(listeSeance);
         }
     }
 }

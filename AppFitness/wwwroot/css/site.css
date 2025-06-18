@@ -38,6 +38,17 @@ body, html {
     background-attachment: fixed; /* déjà présent */
     z-index: 0; /* Derrière le contenu */
 }
+.backgroundimg3 {
+    position: fixed; /* Pour que l'image reste fixe au scroll */
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url(../Images/Background4.jpg);
+    background-size: 1600px 1100px;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* déjà présent */
+    z-index: 0;
+}
 
 .backgroundimg1 {
     left: 0; /* image à gauche */
@@ -49,6 +60,11 @@ body, html {
     right: 0; /* image à droite */
     background-position: right center;
     transform: scaleX(1);
+}
+.backgroundimg3 {
+    right: 0; /* image à droite */
+    background-position: 900px -50px;
+    transform: scaleX(-1);
 }
 
 main {

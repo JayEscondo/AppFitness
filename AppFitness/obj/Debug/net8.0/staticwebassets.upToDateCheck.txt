@@ -3,6 +3,7 @@ wwwroot\favicon.ico
 wwwroot\Images\Background1.png
 wwwroot\Images\Background2.png
 wwwroot\Images\Background3.jpg
+wwwroot\Images\Background4.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace EntityFitness.MyEntities
 {
-    public class SeanceSerie
+    public class SeanceExo
     {
         public List<Seance> listeSeance { get; set; }
-        public List<Serie> listeSerie { get; set; }
+        public List<Exercice> listeExo { get; set; }
     }
 }
