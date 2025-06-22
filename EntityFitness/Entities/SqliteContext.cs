@@ -47,6 +47,7 @@ public partial class SqliteContext : DbContext
 
             entity.Property(e => e.Date).HasDefaultValue("00/00/0000");
             entity.Property(e => e.NomExerciceId).HasColumnName("NomExercice_Id");
+            entity.Property(e => e.NumSerie).HasDefaultValue(1);
             entity.Property(e => e.SerieId)
                 .HasDefaultValue(1)
                 .HasColumnName("Serie_Id");

@@ -11,6 +11,8 @@ public partial class Exercice
 
     public int NomExerciceId { get; set; }
 
+    public int NumSerie { get; set; }
+
     public int SerieId { get; set; }
 
     public virtual NomExercice NomExercice { get; set; } = null!;

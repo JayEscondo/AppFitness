@@ -94,7 +94,7 @@ namespace AppFitness.Controllers
             Exercice exo = new Exercice();
             exo.NomExerciceId = e1.Id;
             exo.SerieId = 1;
-            exo.Date = DateTime.Now.ToString("MM/dd/yyyy");
+            exo.Date = DateTime.Now.ToString("dd/MM/yyyy");
             _context.Exercices.Add(exo);
             _context.SaveChanges();
             return RedirectToAction("ListeExercice");

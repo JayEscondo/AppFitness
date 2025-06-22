@@ -2,90 +2,91 @@
 @using EntityFitness.MyEntities
 @model List<Seance>
 @{
-    Exercice nom = new Exercice();
-    Serie serie = new Serie();
+    Exercice exo = new Exercice();
+    DateTime date1 = new DateTime();
+    DateTime date2 = new DateTime();
+    List<Exercice> listeExo = new List<Exercice>();
+    Seance seance = new Seance();
 }
 <h1 class ="text-center text-light bg-dark p-4">Page DetailSeance</h1>
 <h1 class="text-white">@Model[1].NomSeance.Nom</h1>
 <br/>
-    @for (int i = 0; i < Model.Count; i++)
+@for (int i = 0; i < Model.Count;i++)
+{
+    for(int a = i + 1; a <Model.Count; a++)
     {
-        if (i == 0)
+        if (Model[i].Exercice.NomExercice.Id == Model[a].Exercice.NomExercice.Id)
         {
-        nom = Model[i].Exercice;
-        <table class="table">
-            <thead>
-                <tr>
-                    <h4 class="text-white">@Model[i].Exercice.NomExercice.Nom</h4>
-                    <th scope="col" class="text-white">Id</th>
-                    <th scope="col" class="text-white">Date</th>
-                    <th scope="col" class="text-white">Poids</th>
-                    <th scope="col" class="text-white">Rep</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-white">@Model[i].Exercice.Serie.Id</td>
-                    <td class="text-white">@Model[i].Exercice.Date</td>
-                    <td class="text-white">@Model[i].Exercice.Serie.Poids</td>
-                    <td class="text-white">@Model[i].Exercice.Serie.Rep</td>
-                </tr>
-                @if (Model[i].Exercice.NomExerciceId == Model[i++].Exercice.NomExerciceId)
-                {
-                    @for (int n = 1; n < Model.Count; n++)
-                    {
-                        if (Model[i].Exercice.NomExerciceId == Model[n].Exercice.NomExerciceId)
-                        {
-                            <tr>
-                                <td class="text-white">@Model[n].Exercice.Serie.Id</td>
-                                <td class="text-white">@Model[n].Exercice.Date</td>
-                                <td class="text-white">@Model[n].Exercice.Serie.Poids</td>
-                                <td class="text-white">@Model[n].Exercice.Serie.Rep</td>
-                            </tr>
-                        }
-                    }
-                }
-            </tbody>
-        </table>
-        }else
-        {
-        <table class="table">
-            <thead>
-                <tr>
-                    <h4 class="text-white">@Model[i].Exercice.NomExercice.Nom</h4>
-                    <th scope="col" class="text-white">Id</th>
-                    <th scope="col" class="text-white">Date</th>
-                    <th scope="col" class="text-white">Poids</th>
-                    <th scope="col" class="text-white">Rep</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="text-white">@Model[i].Exercice.Serie.Id</td>
-                    <td class="text-white">@Model[i].Exercice.Date</td>
-                    <td class="text-white">@Model[i].Exercice.Serie.Poids</td>
-                    <td class="text-white">@Model[i].Exercice.Serie.Rep</td>
-                </tr>
-                @if (i++ != null) 
-                {
-                    @if (Model[i].Exercice.NomExerciceId == Model[i++].Exercice.NomExerciceId)
-                    {
-                        @for (int n = i; n < Model.Count; n++)
-                        {
-                            if (Model[i].Exercice.NomExerciceId == Model[n++].Exercice.NomExerciceId)
-                            {
-                                <tr>
-                                    <td class="text-white">@Model[n].Exercice.Serie.Id</td>
-                                    <td class="text-white">@Model[n].Exercice.Date</td>
-                                    <td class="text-white">@Model[n].Exercice.Serie.Poids</td>
-                                    <td class="text-white">@Model[n].Exercice.Serie.Rep</td>
-                                </tr>
-                            }
-                        }
-                    }
-                }
-            </tbody>
-        </table>
+            date1 = DateTime.Parse(Model[i].Exercice.Date);
+            date2 = DateTime.Parse(Model[a].Exercice.Date);
+            if (date1 < date2)
+            {
+                i++;            
+            }
+            else if (date1 > date2)
+            {
+                seance = Model[a];
+                Model.Remove(seance);
+            }
+            else if (date1 == date2)
+            {
+                exo = Model[a].Exercice;
+                listeExo.Add(exo);
+                seance = Model[a];
+                Model.Remove(seance);
+            }
         }
     }
+    if (listeExo != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-white">@Model[i].Exercice.NomExercice.Nom</th>
+                    <th scope="col" class="text-white">Id</th>
+                    <th scope="col" class="text-white">Dernière date</th>
+                    <th scope="col" class="text-white">N° de série</th>
+                    <th scope="col" class="text-white">Poids</th>
+                    <th scope="col" class="text-white">Rep</th>
+                </tr>
+            </thead>
+            <tbody>
+            @for (int a = 0; a < listeExo.Count; a++)
+            {
+                <tr>
+                    <td class="text-white">@listeExo[a].Serie.Id</td>
+                    <td class="text-white">@listeExo[a].Date</td>
+                    <td class="text-white">@listeExo[a].NumSerie</td>
+                    <td class="text-white">@listeExo[a].Serie.Poids</td>
+                    <td class="text-white">@listeExo[a].Serie.Rep</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" class="text-white">@Model[i].Exercice.NomExercice.Nom</th>
+                <th scope="col" class="text-white">Id</th>
+                <th scope="col" class="text-white">Dernière date</th>
+                <th scope="col" class="text-white">N° de série</th>
+                <th scope="col" class="text-white">Poids</th>
+                <th scope="col" class="text-white">Rep</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="text-white">@Model[i].Exercice.Serie.Id</td>
+                <td class="text-white">@Model[i].Exercice.Date</td>
+                <td class="text-white">@Model[i].Exercice.NumSerie</td>
+                <td class="text-white">@Model[i].Exercice.Serie.Poids</td>
+                <td class="text-white">@Model[i].Exercice.Serie.Rep</td>
+            </tr>
+        </tbody>
+        </table>
+    }
+    listeExo = new List<Exercice>();
 }

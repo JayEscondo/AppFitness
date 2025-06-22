@@ -7,20 +7,8 @@
       "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\views\\seance\\detailseance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\views\\exercice\\listeexercice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\views\\exercice\\listeexercice.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\controllers\\seancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\controllers\\seancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2258890-5B22-43D9-AF6E-4CC6D67DC6CA}|EntityFitness\\EntityFitness.csproj|g:\\github\\appfitness\\entityfitness\\entities\\seance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2258890-5B22-43D9-AF6E-4CC6D67DC6CA}|EntityFitness\\EntityFitness.csproj|solutionrelative:entityfitness\\entities\\seance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E2258890-5B22-43D9-AF6E-4CC6D67DC6CA}|EntityFitness\\EntityFitness.csproj|g:\\github\\appfitness\\entityfitness\\entities\\exercice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E2258890-5B22-43D9-AF6E-4CC6D67DC6CA}|EntityFitness\\EntityFitness.csproj|solutionrelative:entityfitness\\entities\\exercice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\views\\seance\\listeseance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\views\\seance\\listeseance.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,8 +17,8 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 654,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 634,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,34 +30,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "SeanceController.cs",
-              "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Controllers\\SeanceController.cs",
-              "RelativeDocumentMoniker": "AppFitness\\Controllers\\SeanceController.cs",
-              "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Controllers\\SeanceController.cs",
-              "RelativeToolTip": "AppFitness\\Controllers\\SeanceController.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwG4AAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-17T12:54:49.834Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ListeExercice.cshtml",
-              "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Views\\Exercice\\ListeExercice.cshtml",
-              "RelativeDocumentMoniker": "AppFitness\\Views\\Exercice\\ListeExercice.cshtml",
-              "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Views\\Exercice\\ListeExercice.cshtml",
-              "RelativeToolTip": "AppFitness\\Views\\Exercice\\ListeExercice.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAQAAAAAAAAAA==",
+              "Title": "ListeSeance.cshtml",
+              "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\ListeSeance.cshtml",
+              "RelativeDocumentMoniker": "AppFitness\\Views\\Seance\\ListeSeance.cshtml",
+              "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\ListeSeance.cshtml",
+              "RelativeToolTip": "AppFitness\\Views\\Seance\\ListeSeance.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-18T20:27:34.573Z",
+              "WhenOpened": "2025-06-19T19:48:27.724Z",
               "EditorCaption": ""
             }
           ]
         },
         {
-          "DockedWidth": 755,
+          "DockedWidth": 775,
           "SelectedChildIndex": 0,
           "Children": [
             {
@@ -78,64 +53,11 @@
               "Title": "DetailSeance.cshtml",
               "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\DetailSeance.cshtml",
               "RelativeDocumentMoniker": "AppFitness\\Views\\Seance\\DetailSeance.cshtml",
-              "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\DetailSeance.cshtml*",
-              "RelativeToolTip": "AppFitness\\Views\\Seance\\DetailSeance.cshtml*",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAD0AAAAiAAAAAAAAAA==",
+              "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\DetailSeance.cshtml",
+              "RelativeToolTip": "AppFitness\\Views\\Seance\\DetailSeance.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-17T12:56:21.594Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 1,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "d2ef6caf-a9bd-4062-b216-fbba8afe1ef2",
-        "Display": 1,
-        "X": 224,
-        "Y": 306,
-        "Width": 861,
-        "Height": 982,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Seance.cs",
-              "DocumentMoniker": "G:\\Github\\AppFitness\\EntityFitness\\Entities\\Seance.cs",
-              "RelativeDocumentMoniker": "EntityFitness\\Entities\\Seance.cs",
-              "ToolTip": "G:\\Github\\AppFitness\\EntityFitness\\Entities\\Seance.cs",
-              "RelativeToolTip": "EntityFitness\\Entities\\Seance.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T11:13:04.4Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Exercice.cs",
-              "DocumentMoniker": "G:\\Github\\AppFitness\\EntityFitness\\Entities\\Exercice.cs",
-              "RelativeDocumentMoniker": "EntityFitness\\Entities\\Exercice.cs",
-              "ToolTip": "G:\\Github\\AppFitness\\EntityFitness\\Entities\\Exercice.cs",
-              "RelativeToolTip": "EntityFitness\\Entities\\Exercice.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T11:13:11.386Z",
               "EditorCaption": ""
             }
           ]

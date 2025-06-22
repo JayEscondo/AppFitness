@@ -32,7 +32,6 @@ namespace AppFitness.Controllers
                     index = i;
                     i++;
                 }
-
             }
             return View(liste);
         }
@@ -107,6 +106,7 @@ namespace AppFitness.Controllers
                 .Include(ne => ne.Exercice.NomExercice)
                 .Include(r => r.Exercice.Serie)
                 .OrderBy(a => a.Exercice.NomExercice.Nom)
+                .ThenBy(d => d.Exercice.Date)
                 .Where(s => s.NomSeanceId == id)
                 .ToList();
             return View(listeSeance);
