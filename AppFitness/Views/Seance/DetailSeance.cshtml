@@ -3,90 +3,138 @@
 @model List<Seance>
 @{
     Exercice exo = new Exercice();
+    Exercice exo1 = new Exercice();
     DateTime date1 = new DateTime();
     DateTime date2 = new DateTime();
     List<Exercice> listeExo = new List<Exercice>();
     Seance seance = new Seance();
+    List<Seance> listeSeance = new List<Seance>();
+    bool doublon = false;
+    int index = 0;
+    List<Seance> original = Model.ToList();
+    Seance seance1 = new Seance();
 }
-<h1 class ="text-center text-light bg-dark p-4">Page DetailSeance</h1>
-<h1 class="text-white">@Model[1].NomSeance.Nom</h1>
+<h1 class="text-center text-light bg-dark p-4">Séance @Model[0].NomSeance.Nom</h1>
 <br/>
-@for (int i = 0; i < Model.Count;i++)
+<div id="formModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content btn-color2" id="formContainer">
+            <!-- Le formulaire sera injecté ici -->
+        </div>
+    </div>
+</div>
+
+@for (int i = 0; i < Model.Count; i++)
 {
-    for(int a = i + 1; a <Model.Count; a++)
+    seance = new Seance();
+    listeExo = new List<Exercice>();
+    for (int a = 0; a < Model.Count; a++)
     {
-        if (Model[i].Exercice.NomExercice.Id == Model[a].Exercice.NomExercice.Id)
+        if (Model[i].Exercice.NomExerciceId == Model[a].Exercice.NomExerciceId)
         {
-            date1 = DateTime.Parse(Model[i].Exercice.Date);
-            date2 = DateTime.Parse(Model[a].Exercice.Date);
+            exo = Model[a].Exercice;
+            listeExo.Add(exo);
+            listeExo.OrderBy(n => n.NomExerciceId)
+                .ThenBy(d => d.Date)
+                .ThenBy(ns => ns.NumSerie)
+                .ToList();
+        }
+    }
+    for (int a = 0; a < listeExo.Count;)
+    {
+        index = a + 1;
+        if (index < listeExo.Count)
+        {
+            date1 = DateTime.Parse(listeExo[a].Date);
+            date2 = DateTime.Parse(listeExo[index].Date);
             if (date1 < date2)
             {
-                i++;            
+                exo = listeExo[a];
+                listeExo.Remove(exo);
             }
             else if (date1 > date2)
             {
-                seance = Model[a];
-                Model.Remove(seance);
+                exo = listeExo[index];
+                listeExo.Remove(exo);
             }
-            else if (date1 == date2)
+            else
             {
-                exo = Model[a].Exercice;
-                listeExo.Add(exo);
-                seance = Model[a];
-                Model.Remove(seance);
+                a++;
             }
         }
+        else
+        {
+            a++;    
+        }
     }
-    if (listeExo != null)
+    seance = Model[i];
+    doublon = listeSeance.Any(i => i.Exercice.NomExercice.Nom == seance.Exercice.NomExercice.Nom);
+    @if (doublon == false)
     {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col" class="text-white">@Model[i].Exercice.NomExercice.Nom</th>
-                    <th scope="col" class="text-white">Id</th>
-                    <th scope="col" class="text-white">Dernière date</th>
-                    <th scope="col" class="text-white">N° de série</th>
-                    <th scope="col" class="text-white">Poids</th>
-                    <th scope="col" class="text-white">Rep</th>
-                </tr>
-            </thead>
-            <tbody>
-            @for (int a = 0; a < listeExo.Count; a++)
-            {
-                <tr>
-                    <td class="text-white">@listeExo[a].Serie.Id</td>
-                    <td class="text-white">@listeExo[a].Date</td>
-                    <td class="text-white">@listeExo[a].NumSerie</td>
-                    <td class="text-white">@listeExo[a].Serie.Poids</td>
-                    <td class="text-white">@listeExo[a].Serie.Rep</td>
-                </tr>
-            }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <table class="table">
+        <table class="table btn-color3">
+        listeSeance.Add(seance);
         <thead>
             <tr>
-                <th scope="col" class="text-white">@Model[i].Exercice.NomExercice.Nom</th>
-                <th scope="col" class="text-white">Id</th>
-                <th scope="col" class="text-white">Dernière date</th>
+                <h4 class="text-white">@seance.Exercice.NomExercice.Nom</h4>
                 <th scope="col" class="text-white">N° de série</th>
-                <th scope="col" class="text-white">Poids</th>
+                <th scope="col" class="text-white">Dernière date</th>
+                <th scope="col" class="text-white">Poids(kg)</th>
                 <th scope="col" class="text-white">Rep</th>
+                <th scope="col" class="text-white"></th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td class="text-white">@Model[i].Exercice.Serie.Id</td>
-                <td class="text-white">@Model[i].Exercice.Date</td>
-                <td class="text-white">@Model[i].Exercice.NumSerie</td>
-                <td class="text-white">@Model[i].Exercice.Serie.Poids</td>
-                <td class="text-white">@Model[i].Exercice.Serie.Rep</td>
-            </tr>
-        </tbody>
+        @for (int a = 0; a < listeExo.Count; a++)
+        {
+            seance1 = original.FirstOrDefault(e => e.ExerciceId == listeExo[a].Id);
+            <tbody>
+                <tr>
+                    <td class="text-white">@listeExo[a].NumSerie</td>
+                    <td class="text-white">@listeExo[a].Date</td>
+                    <td class="text-white">@listeExo[a].Serie.Poids</td>
+                    <td class="text-white">@listeExo[a].Serie.Rep</td>
+                    <td>
+                        <button class="btn btn-primary" 
+                        onclick="openForm(@seance1.Id)">
+                        Modifier</button>
+                    </td>
+                </tr>
+            </tbody>
+        }
+        @if (listeExo == null)
+        {
+            <tbody>
+                <tr>
+                    <td class="text-white">@Model[i].Exercice.NumSerie</td>
+                    <td class="text-white">@Model[i].Exercice.Date</td>
+                    <td class="text-white">@Model[i].Exercice.Serie.Poids</td>
+                    <td class="text-white">@Model[i].Exercice.Serie.Rep</td>
+                    <td>
+                        <button role="button" class="btn btn-primary"
+                            onclick="openForm(@Model[i].Id)">
+                            Modifier</button>
+                    </td>
+                </tr>
+            </tbody>
+        }
         </table>
     }
-    listeExo = new List<Exercice>();
+}
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openForm(id) {
+            $.ajax({
+                url: '@Url.Action("EditSeance", "Seance")',
+                type: 'GET',
+                success: function(html) {
+                    $('#formContainer').html(html);
+                    $('#formModal').modal('show');
+                },
+                error: function() {
+                    alert('Une erreur est survenue lors du chargement du formulaire.');
+                }
+            });
+        }
+    </script>
 }

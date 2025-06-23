@@ -93,7 +93,6 @@ namespace AppFitness.Controllers
             _context.SaveChanges();
             _context.NomSeances.Remove(nomSeance);
             _context.SaveChanges();
-            ViewBag.Message = "La séance a bien été supprimer";
             return RedirectToAction("ListeSeance");
         }
 
@@ -110,6 +109,17 @@ namespace AppFitness.Controllers
                 .Where(s => s.NomSeanceId == id)
                 .ToList();
             return View(listeSeance);
+        }
+        [HttpGet]
+        public IActionResult EditSeance(int id) 
+        {
+            Seance s = _context.Seances
+                .Include(c => c.NomSeance)
+                .Include(c => c.Exercice)
+                .Include(ne => ne.Exercice.NomExercice)
+                .Include(r => r.Exercice.Serie)
+                .FirstOrDefault(i => i.Id == id);
+            return PartialView("_EditSeancePartial",s);
         }
     }
 }

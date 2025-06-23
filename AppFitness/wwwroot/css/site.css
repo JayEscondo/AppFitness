@@ -122,4 +122,10 @@ footer {
 .btn-color4 {
     background-color: #DFD0B8 !important;
 }
+.modal {
+    z-index: 20000 !important;
+}
 
+.modal-backdrop {
+    z-index: 9 !important;
+}
