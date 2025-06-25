@@ -29,18 +29,14 @@
     </div>
 </div>
 @if (TempData["Erreur"] != null)
-{
-    <div class="alert alert-danger">
-        <h4 class="text-black">@TempData["Erreur"]</h4>
-    </div>
-}
 <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
     <button role="button" class="btn btn-success" onclick="AddExo(@NomSId)">
         <i class="bi bi-plus-square"></i> Ajouter un exercice
     </button>
-    <button class="btn btn-secondary">
+    <a role="button" asp-controller="Print" asp-action="ExportWord" class="btn btn-secondary"
+        asp-route-id="@Model[0].NomSeanceId">
         <i class="bi bi-printer"></i> Imprimer
-    </button>
+    </a>
     <form asp-action="DeleteSeance" method="post">
         <input type="hidden" name="Nom" value="@Model[0].NomSeanceId" />
         <button role="button" class="btn btn-danger"><i class="bi bi-trash"></i> Supprimer la séance "@Model[0].NomSeance.Nom"</button>

@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "G:\\Github\\AppFitness\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\controllers\\seancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\controllers\\seancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\controllers\\printcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\controllers\\printcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\controllers\\seancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|solutionrelative:appfitness\\controllers\\seancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{74D06EA5-552F-48A6-BED0-F928D0DF1561}|AppFitness\\AppFitness.csproj|g:\\github\\appfitness\\appfitness\\helpers\\impressionseance.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -46,13 +46,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "SeanceController.cs",
               "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Controllers\\SeanceController.cs",
               "RelativeDocumentMoniker": "AppFitness\\Controllers\\SeanceController.cs",
               "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Controllers\\SeanceController.cs",
               "RelativeToolTip": "AppFitness\\Controllers\\SeanceController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAP0AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAGoAAAAAAAAAAAA0wGgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-24T23:28:01.604Z",
               "EditorCaption": ""
@@ -65,7 +65,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ListeSeance.cshtml",
               "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\ListeSeance.cshtml",
               "RelativeDocumentMoniker": "AppFitness\\Views\\Seance\\ListeSeance.cshtml",
@@ -73,18 +73,17 @@
               "RelativeToolTip": "AppFitness\\Views\\Seance\\ListeSeance.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T09:54:06.443Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T09:54:06.443Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "AppFitness\\Views\\Home\\Index.cshtml",
               "ToolTip": "G:\\Github\\AppFitness\\AppFitness\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "AppFitness\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-25T05:45:19.216Z",
               "EditorCaption": ""
@@ -103,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "PrintController.cs",
               "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Controllers\\PrintController.cs",
               "RelativeDocumentMoniker": "AppFitness\\Controllers\\PrintController.cs",
@@ -111,12 +110,11 @@
               "RelativeToolTip": "AppFitness\\Controllers\\PrintController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-25T05:02:28.344Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T05:02:28.344Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "_EditSeancePartial.cshtml",
               "DocumentMoniker": "G:\\Github\\AppFitness\\AppFitness\\Views\\Seance\\_EditSeancePartial.cshtml",
               "RelativeDocumentMoniker": "AppFitness\\Views\\Seance\\_EditSeancePartial.cshtml",
@@ -124,8 +122,7 @@
               "RelativeToolTip": "AppFitness\\Views\\Seance\\_EditSeancePartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-25T01:49:42.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-25T01:49:42.486Z"
             }
           ]
         }

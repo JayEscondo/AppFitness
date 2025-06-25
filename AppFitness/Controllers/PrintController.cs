@@ -1,35 +1,34 @@
-﻿using AppFitness.Helpers;
-using EntitiesFitness;
-using EntityFitness.MyEntities;
+﻿using EntitiesFitness;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Routing.Constraints;
-using Microsoft.EntityFrameworkCore;
+using Xceed.Words.NET;
 
 namespace AppFitness.Controllers
 {
     public class PrintController : Controller
     {
         private readonly SqliteContext _context;
-
-        public PrintController(SqliteContext context)
+        public PrintController(SqliteContext context) 
         {
             _context = context;
         }
-
-        public IActionResult PrintListeSeance(int NomSeanceId) 
+        public IActionResult ExportWord(int id)
         {
-            List<Seance> listeS = _context.Seances
-                .Include(n => n.NomSeance)
-                .Include(e => e.Exercice)
-                .Include(en => en.Exercice.NomExercice)
-                .Include(s => s.Exercice.Serie)
-                .Where(i => i.NomSeanceId == NomSeanceId)
+            List<Seance> listeSeance = _context.Seances
+                .Where(s => s.NomSeanceId == id)
                 .ToList();
-            string physicalPath = ImpressionSeance.CreateDocument(listeS, @"G:\\Github\\AppFitness\\Seance_Template.docx");
-            byte[] pdfBytes = System.IO.File.ReadAllBytes(physicalPath);
-            MemoryStream ms = new MemoryStream(pdfBytes);
-            return new FileStreamResult(ms, "Seance/pdf");
+
+
+            string templatePath = "Seance_Template.docx";
+
+            using (DocX document = DocX.Create(templatePath)) 
+            {
+                document.InsertParagraph("Liste Séancees").FontSize(16).Bold().SpacingAfter(20);
+
+                foreach (Seance seance in listeSeance) 
+                {
+                    document.InsertParagraph()
+                }
+            }
         }
     }
 }
