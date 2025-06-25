@@ -1,7 +1,7 @@
 ﻿@using EntitiesFitness
 @model List<Exercice>
 
-<h1 class="text-center rounded-3 text-light bg-dark p-4">Page DetailExercice</h1>
+<h1 class="text-center rounded-3 text-light bg-dark p-4">Detail @ViewBag.NomExo</h1>
 
 <div class="p-4 border rounded btn-color4">
     <h4>@ViewBag.nomExo</h4>
@@ -18,6 +18,10 @@
             </dl>
         </div>
     }
-    <a class="btn btn-primary" role="button" asp-action="ListeExercice">retour</a>
-    <button class="btn btn-secondary">Imprimer</button>
+    <a class="btn btn-primary" role="button" asp-action="ListeExercice">
+        <i class="bi bi-arrow-return-left"></i> retour
+    </a>
+    <button class="btn btn-secondary" onclick="window.print()">
+        <i class="bi bi-trash"></i> Imprimer
+    </button>
 </div>
