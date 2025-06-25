@@ -14,8 +14,8 @@
         <tr class="table-dark">
             <th scope="col" class="btn-color4 text-black">Nom</th>
             <th scope="col" class="btn-color4 text-black">Muscle</th>
-            <th scope="col" class="btn-color4 text-black">Répétition</th>
-            <th scope="col" class="btn-color4 text-black">Poids(kg)</th>
+            <th scope="col" class="btn-color4 text-black text-center">Répétition</th>
+            <th scope="col" class="btn-color4 text-black text-center">Poids(kg)</th>
             <th scope="col" class="btn-color4 text-black"></th>
             <th scope="col" class="btn-color4 text-black"></th>
             <th scope="col" class="btn-color4 text-black"></th>
@@ -27,8 +27,8 @@
         <tr>
             <td scope="row" class="text-white">@e.NomExercice.Nom</td>
             <td class ="text-white">@e.NomExercice.Muscle.Nom</td>
-            <td class="text-white">@e.Serie.Rep</td>
-            <td class="text-white">@e.Serie.Poids</td>
+            <td class="text-white text-center">@e.Serie.Rep</td>
+            <td class="text-white text-center">@e.Serie.Poids</td>
             <td><a role="button" class="btn btn-primary" asp-action="EditExercice" asp-route-id="@e.NomExerciceId">Modifier</a></td>
             <td><a role="button" class="btn btn-secondary" asp-action="DetailExercice" asp-route-id="@e.NomExerciceId">Detail</a></td>
             <td>

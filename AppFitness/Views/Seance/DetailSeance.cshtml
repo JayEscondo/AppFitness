@@ -4,15 +4,20 @@
 @{
     Exercice exo = new Exercice();
     Exercice exo1 = new Exercice();
+    DateTime date0 = new DateTime();
     DateTime date1 = new DateTime();
     DateTime date2 = new DateTime();
+    DateTime date3 = new DateTime();
+    List<DateTime> listeDate = new List<DateTime>();
     List<Exercice> listeExo = new List<Exercice>();
     Seance seance = new Seance();
+    Seance seance1 = new Seance();
     List<Seance> listeSeance = new List<Seance>();
+    List<Seance> original = Model.ToList();
+    Serie MySerie = new Serie();
     bool doublon = false;
     int index = 0;
-    List<Seance> original = Model.ToList();
-    Seance seance1 = new Seance();
+    int index1 = 0;
 }
 <h1 class="text-center text-light bg-dark p-4">Séance @Model[0].NomSeance.Nom</h1>
 <br/>
@@ -23,7 +28,11 @@
         </div>
     </div>
 </div>
-
+<div class="d-flex justify-content-between">
+    <button class="btn btn-success" onclick="AddExo(@Model[0].NomSeanceId)">+ Ajouter un exercice</button>
+    <button class="btn btn-secondary">Imprimer</button>
+</div>
+<br/>
 @for (int i = 0; i < Model.Count; i++)
 {
     seance = new Seance();
@@ -40,42 +49,37 @@
                 .ToList();
         }
     }
-    for (int a = 0; a < listeExo.Count;)
+    for (int j = 0; j < listeExo.Count; j++)
     {
-        index = a + 1;
-        if (index < listeExo.Count)
+        date0 = DateTime.Parse(listeExo[j].Date);
+        listeDate.Add(date0);
+        listeDate.OrderByDescending(d => d.Date).ToList();
+    }
+    index1 = listeDate.Count - 1;
+    date1 = listeDate[index1].Date;
+    for (int j = 0; j < listeExo.Count;)
+    {
+        date2 = DateTime.Parse(listeExo[j].Date);
+        if (date1 != date2)
         {
-            date1 = DateTime.Parse(listeExo[a].Date);
-            date2 = DateTime.Parse(listeExo[index].Date);
-            if (date1 < date2)
-            {
-                exo = listeExo[a];
-                listeExo.Remove(exo);
-            }
-            else if (date1 > date2)
-            {
-                exo = listeExo[index];
-                listeExo.Remove(exo);
-            }
-            else
-            {
-                a++;
-            }
-        }
-        else
+            exo = listeExo[j];
+            listeExo.Remove(exo);
+        } else
         {
-            a++;    
+            j++;    
         }
     }
     seance = Model[i];
     doublon = listeSeance.Any(i => i.Exercice.NomExercice.Nom == seance.Exercice.NomExercice.Nom);
     @if (doublon == false)
     {
-        <table class="table btn-color3">
         listeSeance.Add(seance);
+        <div class="align-content-around">
+            <h4 class="text-white">@seance.Exercice.NomExercice.Nom</h4>
+        </div>
+        <table class="table btn-color3 text-center">
         <thead>
             <tr>
-                <h4 class="text-white">@seance.Exercice.NomExercice.Nom</h4>
                 <th scope="col" class="text-white">N° de série</th>
                 <th scope="col" class="text-white">Dernière date</th>
                 <th scope="col" class="text-white">Poids(kg)</th>
@@ -111,12 +115,29 @@
                     <td>
                         <button role="button" class="btn btn-primary"
                             onclick="openForm(@Model[i].Id)">
-                            Modifier</button>
+                            Modifier
+                        </button>
                     </td>
                 </tr>
             </tbody>
         }
         </table>
+        MySerie.Poids = Model[i].Exercice.Serie.Poids;
+        MySerie.Rep = Model[i].Exercice.Serie.Rep;
+        string d = date1.ToString("dd.MM.yyyy");
+        <div class="d-flex gap-2" style="margin-bottom: 50px;">
+        <form asp-controller="Seance" asp-action="AddSerie" method="post">
+            <input type="hidden" name="pageIndex" value="@Model[Model.Count - 1].NomSeanceId" />
+            <input type="hidden" name="NomExo" value="@seance.Exercice.NomExerciceId" />
+            <input type="hidden" name="Poids" value="0" />
+            <input type="hidden" name="Rep" value="1"/>
+            <input type="hidden" name="Date" value="@d" />
+            <button class="btn btn-success">
+                + Ajouter une série
+            </button>
+        </form>
+            <button class="btn btn-danger">Supprimer cet exercice</button>
+        </div>
     }
 }
 @section Scripts {
@@ -125,7 +146,20 @@
     <script>
         function openForm(id) {
             $.ajax({
-                url: '@Url.Action("EditSeance", "Seance")',
+                url: '@Url.Action("EditSeance", "Seance")' + '?id=' + id,
+                type: 'GET',
+                success: function(html) {
+                    $('#formContainer').html(html);
+                    $('#formModal').modal('show');
+                },
+                error: function() {
+                    alert('Une erreur est survenue lors du chargement du formulaire.');
+                }
+            });
+        }
+            function AddExo(id) {
+            $.ajax({
+                url: '@Url.Action("AddExercice", "Seance")',
                 type: 'GET',
                 success: function(html) {
                     $('#formContainer').html(html);

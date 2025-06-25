@@ -1,27 +1,39 @@
 ﻿@using EntitiesFitness
-@model Seance
+@model Serie
 
 <div class="modal-header">
-    <h1 class="text-white">EditSeance</h1>
+    <h1 class="text-white">@ViewBag.Message</h1>
 </div>
 <div class="modal-body">
-<form class="p-4 rounded-3 btn-color3" asp-action="EditSeance" method="post" id="">
-    <div>
-        <label class="text-white">Nom</label>
-        <input class="form-control"  type="text" />
-        <span class="text-danger"></span>
-    </div>
-    <br />
-    <div>
-        <label class="text-white">Muscle</label>
-        <select class="form-select" asp-items="@ViewBag.listeMuscle">
-            <option value="">-- Choisir un muscle --</option>
-        </select>
-        <span class="text-danger"></span>
-    </div>
-    <br />
-    <div>
+<form class="pt-4 btn-color3 text-center" asp-action="EditSeance" method="post">
+    <table>
+      <thead>
+          <tr>
+            <th>N° série</th>
+            <th>Poids(kg)</th>
+            <th>Nb répétitions</th>
+        </tr>
+      </thead>
+      <tbody>
+          <input type="hidden" name="pageIndex" value="@ViewBag.Message1" />
+          <tr>
+            <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
+            <td><input class="form-control mb-2" type="number" name="numSerie" value="1" /></td>
+            <td>
+                <input class="form-control mb-2" type="number"
+                asp-for="Poids"
+                value=@Model.Poids" />
+            </td>
+            <td>
+                <input class="form-control mb-2" type="number"
+                asp-for="Rep"
+                value="@Model.Rep" />
+            </td>
+          </tr>
+      </tbody>
+    </table>
+    <br/>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
-    </div>
+    <br/>
 </form>
 </div>
