@@ -129,3 +129,8 @@ footer {
 .modal-backdrop {
     z-index: 9 !important;
 }
+.modal-custom {
+    max-width: 35% !important;
+    width: 35%;
+}
+

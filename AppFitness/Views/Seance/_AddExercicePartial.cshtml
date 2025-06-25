@@ -1,9 +1,26 @@
 ﻿@using EntitiesFitness
+@using EntityFitness.MyEntities
 @model Seance
 
+<div class="modal-header">
+    <h1 class="text-center rounded-3 text-light btn-color2 p-4">Ajouter un Exercice</h1>
+</div>
 <div class="modal-body">
-    <h1>AddExercice</h1>
-    <form>
-
+    <form class="pt-4 btn-color3 text-center" asp-action="AddExercice" method="post">
+        <input type="hidden" asp-for="NomSeanceId" value="@ViewBag.NomSeanceId" />
+        <input type="hidden" name="pageIndex" value="@ViewBag.NomSeanceId" />
+        <div>
+            <label class="text-black">Choix des exercices</label>
+            <div class="exo-select mb-2">
+                <select class="form-select"
+                        asp-for="ExerciceId"
+                        asp-items="@ViewBag.listeExo">
+                    <option>-- choisir un exercice --</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class=" btn btn-primary">Enregistrer</button>
+        </div>
     </form>
 </div>

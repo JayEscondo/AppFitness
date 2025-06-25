@@ -84,13 +84,18 @@ namespace AppFitness.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteSeance(int id)
+        public IActionResult DeleteSeance(int Nom)
         {
-            Seance s = _context.Seances.Find(id);
+            List<Seance> listeSeance = _context.Seances
+                .Where(n => n.NomSeanceId == Nom)
+                .ToList();
+            foreach (Seance se in listeSeance) 
+            {
+                _context.Seances.Remove(se);
+                _context.SaveChanges();
+            }
             NomSeance nomSeance = _context.NomSeances
-                .FirstOrDefault(n => n.Id == s.NomSeanceId);
-            _context.Seances.Remove(s);
-            _context.SaveChanges();
+                .FirstOrDefault(n => n.Id == Nom);
             _context.NomSeances.Remove(nomSeance);
             _context.SaveChanges();
             return RedirectToAction("ListeSeance");
@@ -110,15 +115,53 @@ namespace AppFitness.Controllers
                 .ToList();
             return View(listeSeance);
         }
+
+        [HttpGet]
         public IActionResult AddExercice(int id) 
         {
-            Seance seance = _context.Seances
-                .Include(c => c.NomSeance)
-                .Include(c => c.Exercice)
-                .Include(ne => ne.Exercice.NomExercice)
-                .Include(r => r.Exercice.Serie)
-                .FirstOrDefault(n => n.NomSeanceId == id);
-            return PartialView("_AddExercicePartial", seance);
+            NomSeance Nom = _context.NomSeances.FirstOrDefault(n => n.Id == id);
+            ViewBag.NomSeance = Nom.Nom;
+            ViewBag.NomSeanceId = id;
+            List<Exercice> listeExo = _context.Exercices
+                .Include(n => n.NomExercice.Muscle)
+                .Include(m => m.NomExercice)
+                .OrderBy(o => o.Id)
+                .ToList();
+            List<SelectListItem> s = new List<SelectListItem>();
+            foreach (Exercice e in listeExo)
+            {
+                s.Add(new SelectListItem()
+                {
+                    Text = $"{e.NomExercice.Nom} ({e.NomExercice.Muscle.Nom})",
+                    Value = e.Id.ToString(),
+                });
+            }
+            ViewBag.listeExo = s;
+            return PartialView("_AddExercicePartial");
+        }
+        [HttpPost]
+        public IActionResult AddExercice(int pageIndex, Seance s) 
+        {
+            _context.Seances.Add(s);
+            _context.SaveChanges();
+            return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+        }
+
+        [HttpPost]
+        public IActionResult DeleteExercice(int pageIndex, int exo) 
+        {
+            Seance s = _context.Seances
+                .FirstOrDefault(e => e.ExerciceId == exo);
+            Exercice e = _context.Exercices
+                .FirstOrDefault(r => r.Id == exo);
+            Serie serie = _context.Series.FirstOrDefault(s => s.Id == e.SerieId);
+            _context.Seances.Remove(s);
+            _context.SaveChanges();
+            _context.Exercices.Remove(e);
+            _context.SaveChanges();
+            _context.Series.Remove(serie);
+            _context.SaveChanges();
+            return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
         }
 
         public IActionResult AddSerie(int pageIndex, int Poids, int Rep, int NomExo, string Date) 
@@ -190,92 +233,36 @@ namespace AppFitness.Controllers
         [HttpPost]
         public IActionResult EditSeance(Serie s, int pageIndex, int numSerie)
         {
-            //if (s.Id == 1)
-            //{
-            //    Serie s1 = new Serie();
-            //    s1.Poids = s.Poids;
-            //    s1.Rep = s.Rep;
-            //    _context.Add(s1);
-            //    _context.SaveChanges();
-            //    List<Serie> listeSerie = _context.Series.ToList();
-            //    Serie s2 = new Serie();
-            //    List<Exercice> listeExo = _context.Exercices.ToList();
-            //    for (int i = 0; i < listeSerie.Count;) 
-            //    {
-            //        if (listeSerie[i].Poids == s1.Poids && listeSerie[i].Rep == s1.Rep)
-            //        {
-            //            s2 = listeSerie[i];
-            //        }
-            //        else 
-            //        {
-            //            i++;
-            //        }
-            //        if (s2.Id != 0) 
-            //        {
-            //            for (int a = 0; a < listeExo.Count; a++)
-            //            {
-            //                if (s2.Id == listeExo[a].SerieId)
-            //                {
-            //                    s2 = null;
-            //                    i++;
-            //                    a = listeExo.Count - 1;
-            //                }
-            //            }
-            //        }
-            //        if (s2.Id != 0) 
-            //        {
-            //            i = listeSerie.Count;
-            //        }
-            //    }
-            //    Seance seance = _context.Seances
-            //        .Include(c => c.NomSeance)
-            //        .Include(c => c.Exercice)
-            //        .Include(ne => ne.Exercice.NomExercice)
-            //        .FirstOrDefault(i => i.NomSeanceId == pageIndex);
-            //    Exercice newExo = new Exercice();
-            //    Exercice exo1 = new Exercice();
-            //    newExo.SerieId = s2.Id;
-            //    newExo.NumSerie = numSerie;
-            //    newExo.NomExerciceId = seance.Exercice.NomExerciceId;
-            //    newExo.Date = DateTime.Now.ToString("dd/MM/yyyy");
-            //    _context.Exercices.Add(newExo);
-            //    _context.SaveChanges();
-            //    listeExo = _context.Exercices
-            //        .ToList();
-            //    List<Seance> listeSeance = _context.Seances.ToList();
-            //    for (int i = 0; i < listeExo.Count;) 
-            //    {
-            //        if (newExo.SerieId == listeExo[i].SerieId) 
-            //        {
-            //            exo1 = listeExo[i];
-            //        }
-            //        else { i++; }
-            //        if (exo1.Id != 0) 
-            //        {
-            //            i = listeExo.Count;
-            //        }
-            //    }
-            //    Seance newSeance = new Seance();
-            //    newSeance.NomSeanceId = seance.NomSeanceId;
-            //    newSeance.ExerciceId = exo1.Id;
-            //    _context.Seances.Add(newSeance);
-            //    _context.SaveChanges();
-            //    return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
-            //}
-            //else 
-            //{
-            //    Exercice exo = _context.Exercices.FirstOrDefault(n=>n.SerieId == s.Id);
-            //    exo.NumSerie = numSerie;
-            //    _context.Exercices.Update(exo);
-            //    _context.Series.Update(s);
-            //    _context.SaveChanges();
-            //    return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
-            //}
             Exercice exo = _context.Exercices.FirstOrDefault(n => n.SerieId == s.Id);
             exo.NumSerie = numSerie;
             _context.Exercices.Update(exo);
             _context.Series.Update(s);
             _context.SaveChanges();
+            return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+        }
+
+        [HttpPost]
+        public IActionResult DeleteSerie(int pageIndex, int SerieId) 
+        {
+            Exercice exo = _context.Exercices
+                .FirstOrDefault(s => s.SerieId == SerieId);
+            Seance seance = _context.Seances
+                .FirstOrDefault(o => o.ExerciceId == exo.Id);
+            Serie s = _context.Series
+                .FirstOrDefault(s => s.Id == SerieId);
+            _context.Seances.Remove(seance);
+            _context.SaveChanges();
+            _context.Exercices.Remove(exo);
+            _context.SaveChanges();
+            _context.Series.Remove(s);
+            _context.SaveChanges();
+            return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+        }
+
+        [HttpPost]
+        public IActionResult StartExercice(int pageIndex) 
+        {
+
             return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
         }
     }

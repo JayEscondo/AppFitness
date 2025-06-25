@@ -2,7 +2,7 @@
 @model Serie
 
 <div class="modal-header">
-    <h1 class="text-white">@ViewBag.Message</h1>
+    <h1 class="text-white text-center">@ViewBag.Message</h1>
 </div>
 <div class="modal-body">
 <form class="pt-4 btn-color3 text-center" asp-action="EditSeance" method="post">
@@ -18,14 +18,14 @@
           <input type="hidden" name="pageIndex" value="@ViewBag.Message1" />
           <tr>
             <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
-            <td><input class="form-control mb-2" type="number" name="numSerie" value="1" /></td>
+            <td><input class="form-control mb-3" type="number" name="numSerie" value="1" /></td>
             <td>
-                <input class="form-control mb-2" type="number"
+                <input class="form-control mb-3" type="number"
                 asp-for="Poids"
                 value=@Model.Poids" />
             </td>
             <td>
-                <input class="form-control mb-2" type="number"
+                <input class="form-control mb-3" type="number"
                 asp-for="Rep"
                 value="@Model.Rep" />
             </td>
