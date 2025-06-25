@@ -18,7 +18,7 @@
           <input type="hidden" name="pageIndex" value="@ViewBag.Message1" />
           <tr>
             <input type="hidden" asp-for="@Model.Id" value="@Model.Id" />
-            <td><input class="form-control mb-3" type="number" name="numSerie" value="1" /></td>
+            <td><input class="form-control mb-3" type="number" name="numSerie" value="@ViewBag.NumSerie" /></td>
             <td>
                 <input class="form-control mb-3" type="number"
                 asp-for="Poids"

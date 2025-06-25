@@ -162,6 +162,11 @@ namespace AppFitness.Controllers
         [HttpPost]
         public IActionResult AddExercice(int pageIndex, Seance s) 
         {
+            if (s.ExerciceId == 0) 
+            {
+                TempData["Erreur"] = "Veuillez choisir un exercice !";
+                return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+            }
             _context.Seances.Add(s);
             _context.SaveChanges();
             return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
@@ -246,6 +251,7 @@ namespace AppFitness.Controllers
                 .Include(r => r.Exercice.Serie)
                 .FirstOrDefault(i => i.Id == id);
             Serie serie = s.Exercice.Serie;
+            ViewBag.NumSerie = s.Exercice.NumSerie;
             ViewBag.Message = s.Exercice.NomExercice.Nom;
             ViewBag.Message1 = s.NomSeanceId;
             return PartialView("_EditSeancePartial",serie);
@@ -335,6 +341,7 @@ namespace AppFitness.Controllers
             }
             else 
             {
+                TempData["Erreur"] = "Une Erreur est survenue !";
                 return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
             }
         }

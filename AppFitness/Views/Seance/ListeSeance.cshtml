@@ -4,7 +4,7 @@
 <h1 class="text-center rounded-3 text-light btn-color2 p-4">Entraînements</h1>
 <br/>
 <a asp-controller="Seance" asp-action="CreateSeance" class="btn btn-success">
-    + Créer une nouvelle séance
+    <i class="bi bi-plus-square"></i> Créer une nouvelle séance
 </a><br/>
 <br/>
 <div class="grid1">
@@ -13,7 +13,7 @@
         <div class="grid1-item custom-grid">
             <div class="text-background">@s.NomSeance.Nom</div>
             <a role="button" class="btn btn-color4" asp-action="DetailSeance" asp-route-id="@s.NomSeanceId">
-                Voir la séance
+                <i class="bi bi-eye"></i> Voir la séance
             </a>
         </div>
     }

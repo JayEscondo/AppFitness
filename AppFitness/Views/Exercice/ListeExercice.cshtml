@@ -5,7 +5,7 @@
 <div>
     <br/>
     <a role="button" class="btn btn-success" asp-controller="Exercice" asp-action="CreateExercice">
-        + Créer un exercice
+        <i class="bi bi-plus-square"></i> Créer un exercice
     </a>
 </div>
 <br/>
@@ -29,12 +29,21 @@
             <td class ="text-white">@e.NomExercice.Muscle.Nom</td>
             <td class="text-white text-center">@e.Serie.Rep</td>
             <td class="text-white text-center">@e.Serie.Poids</td>
-            <td><a role="button" class="btn btn-primary" asp-action="EditExercice" asp-route-id="@e.NomExerciceId">Modifier</a></td>
-            <td><a role="button" class="btn btn-secondary" asp-action="DetailExercice" asp-route-id="@e.NomExerciceId">Detail</a></td>
+            <td><a role="button" class="btn btn-primary" asp-action="EditExercice" asp-route-id="@e.NomExerciceId">
+                    <i class="bi bi-pencil-square">
+                </a>
+            </td>
+            <td><a role="button" class="btn btn-secondary" asp-action="DetailExercice" asp-route-id="@e.NomExerciceId">
+                    <i class="bi bi-eye"></i>
+                </a>
+            </td>
             <td>
                 <form asp-action="DeleteExercice" method="post">
                     <input type="hidden" name="Id" asp-for="@e.Id" />
-                    <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet exercice ?')">Supprimer</button>
+                        <button type="submit" class="btn btn-danger" 
+                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet exercice ?')">
+                            <i class="bi bi-trash"></i>
+                        </button>
                 </form>
             </td>
         </tr> 

@@ -35,11 +35,15 @@
     </div>
 }
 <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
-    <button role="button" class="btn btn-success" onclick="AddExo(@NomSId)">+ Ajouter un exercice</button>
-    <button class="btn btn-secondary">Imprimer</button>
+    <button role="button" class="btn btn-success" onclick="AddExo(@NomSId)">
+        <i class="bi bi-plus-square"></i> Ajouter un exercice
+    </button>
+    <button class="btn btn-secondary">
+        <i class="bi bi-printer"></i> Imprimer
+    </button>
     <form asp-action="DeleteSeance" method="post">
         <input type="hidden" name="Nom" value="@Model[0].NomSeanceId" />
-        <button role="button" class="btn btn-danger">Supprimer la séance "@Model[0].NomSeance.Nom"</button>
+        <button role="button" class="btn btn-danger"><i class="bi bi-trash"></i> Supprimer la séance "@Model[0].NomSeance.Nom"</button>
     </form>
 </div>
 <br/>
@@ -90,7 +94,9 @@
                 <input type="hidden" name="pageIndex" value="@Model[0].NomSeanceId" />
                 <input type="hidden" name="NomExoId" value="@Model[i].Exercice.NomExerciceId" />
                 <input type="hidden" name="Date" value="@Model[i].Exercice.Date" />
-                <button class="btn btn-info">Commencer cet exercice</button>
+                <button class="btn btn-info">
+                    <i class="bi bi-stopwatch"></i> Commencer cet exercice
+                </button>
             </form>
         </div>
         <table class="table btn-color3 text-center">
@@ -116,14 +122,15 @@
                     <td>
                         <button class="btn btn-primary" 
                         onclick="openForm(@seance1.Id)">
-                        Modifier</button>
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
                     </td>
                     <td>
                         <form asp-action="DeleteSerie" method="post">
                             <input type="hidden" name="SerieId" value="@listeExo[a].SerieId" />
                             <input type="hidden" name="pageIndex" value="@Model[0].NomSeanceId" />
                             <button role="button" class="btn btn-danger">
-                                Supprimer
+                                <i class="bi bi-trash"></i>
                             </button>
                         </form>
                     </td>
@@ -141,7 +148,7 @@
                     <td>
                         <button role="button" class="btn btn-primary"
                             onclick="openForm(@Model[i].Id)">
-                            Modifier
+                            <i class="bi bi-pencil-square"></i>Modifier
                         </button>
                     </td>
                     <td>
@@ -149,7 +156,7 @@
                             <input type="hidden" name="SerieId" value="@Model[i].Exercice.SerieId"/>
                             <input type="hidden" name="pageIndex" value="@Model[0].NomSeanceId" />
                             <button role="button" class="btn btn-danger">
-                                Supprimer
+                                    <i class="bi bi-trash"></i> Supprimer l'exercice
                             </button>
                         </form>
                     </td>
@@ -160,7 +167,7 @@
         MySerie.Poids = Model[i].Exercice.Serie.Poids;
         MySerie.Rep = Model[i].Exercice.Serie.Rep;
         string d = date1.ToString("dd.MM.yyyy");
-        <div class="d-flex gap-2" style="margin-bottom: 50px;">
+        <div class="d-flex gap-3" style="margin-bottom: 50px;">
         <form asp-controller="Seance" asp-action="AddSerie" method="post">
             <input type="hidden" name="pageIndex" value="@Model[Model.Count - 1].NomSeanceId" />
             <input type="hidden" name="NomExo" value="@seance.Exercice.NomExerciceId" />
@@ -168,14 +175,14 @@
             <input type="hidden" name="Rep" value="1"/>
             <input type="hidden" name="Date" value="@d" />
             <button class="btn btn-success">
-                + Ajouter une série
+                <i class="bi bi-plus-square"></i> Ajouter une série
             </button>
         </form>
         <form asp-action="DeleteExercice" method="post">
             <input type="hidden" name="exoId" value="@Model[i].ExerciceId" />
             <input type="hidden" name="pageIndex" value="@Model[0].NomSeanceId" />
             <button role="button" class="btn btn-danger">
-                Supprimer cet exercice
+                <i class="bi bi-trash"></i> Supprimer l'exercice
             </button>
         </form>
         </div>
