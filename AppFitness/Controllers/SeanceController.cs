@@ -60,6 +60,25 @@ namespace AppFitness.Controllers
         [HttpPost]
         public IActionResult CreateSeance(SeanceExercice se)
         {
+            if (se.exo.Count == 0) 
+            {
+                List<Exercice> listeExo = _context.Exercices
+                    .Include(n => n.NomExercice.Muscle)
+                    .Include(m => m.NomExercice)
+                    .OrderBy(o => o.Id)
+                    .ToList();
+                List<SelectListItem> sel = new List<SelectListItem>();
+                foreach (Exercice e in listeExo)
+                {
+                    sel.Add(new SelectListItem()
+                    {
+                        Text = $"{e.NomExercice.Nom} ({e.NomExercice.Muscle.Nom})",
+                        Value = e.Id.ToString(),
+                    });
+                }
+                ViewBag.listeExo = sel;
+                return View("CreateSeance");
+            }
             NomSeance ns = new NomSeance();
             Seance s = new Seance();
             bool doublon = _context.NomSeances.Any(n => n.Nom == se.Seance.NomSeance.Nom);
@@ -149,18 +168,19 @@ namespace AppFitness.Controllers
         }
 
         [HttpPost]
-        public IActionResult DeleteExercice(int pageIndex, int exo) 
+        public IActionResult DeleteExercice(int pageIndex, int exoId) 
         {
+            List<Seance> listeSeance = _context.Seances
+                .Where(a => a.NomSeanceId == pageIndex)
+                .ToList();
+            if (listeSeance.Count == 1) 
+            {
+                TempData["Erreur"] = "Une Séance doit au minimum avoir un Exercice !";
+                return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+            }
             Seance s = _context.Seances
-                .FirstOrDefault(e => e.ExerciceId == exo);
-            Exercice e = _context.Exercices
-                .FirstOrDefault(r => r.Id == exo);
-            Serie serie = _context.Series.FirstOrDefault(s => s.Id == e.SerieId);
+                .FirstOrDefault(e => e.ExerciceId == exoId);
             _context.Seances.Remove(s);
-            _context.SaveChanges();
-            _context.Exercices.Remove(e);
-            _context.SaveChanges();
-            _context.Series.Remove(serie);
             _context.SaveChanges();
             return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
         }

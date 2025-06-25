@@ -151,6 +151,8 @@ G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\AppFitness.deps.json
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\AppFitness.runtimeconfig.json
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\AppFitness.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\AppFitness.pdb
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Spire.Doc.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\HarfBuzzSharp.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Humanizer.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
@@ -173,6 +175,7 @@ G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.Extensions.Logging.dl
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\Mono.TextTemplating.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\SQLitePCLRaw.batteries_v2.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\SQLitePCLRaw.core.dll
@@ -183,6 +186,9 @@ G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Composition.Convention.d
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Composition.Hosting.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Composition.Runtime.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Composition.TypedParts.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Drawing.Common.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Security.Permissions.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\System.Windows.Extensions.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
@@ -235,6 +241,11 @@ G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Works
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\osx\native\libHarfBuzzSharp.dylib
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-x64\native\libHarfBuzzSharp.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-x86\native\libHarfBuzzSharp.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\linux-arm\native\libe_sqlite3.so
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\linux-arm64\native\libe_sqlite3.so
@@ -255,6 +266,9 @@ G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-arm\native\e_sqlit
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\EntityFitness.dll
 G:\Github\AppFitness\AppFitness\bin\Debug\net8.0\EntityFitness.pdb
 G:\Github\AppFitness\AppFitness\obj\Debug\net8.0\AppFitness.csproj.AssemblyReference.cache

@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DbFitness", "DbFitness\DbFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFitness", "EntityFitness\EntityFitness.csproj", "{E2258890-5B22-43D9-AF6E-4CC6D67DC6CA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Données", "1. Données", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Métier", "2. Métier", "{369CB01D-A1A7-72D2-AABC-3F0945D148A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Interface", "3. Interface", "{7DC331D0-3EC4-40A6-69FB-1CBEB2E0D1EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{74D06EA5-552F-48A6-BED0-F928D0DF1561} = {7DC331D0-3EC4-40A6-69FB-1CBEB2E0D1EA}
+		{F5F81D57-56E7-4D6D-85B2-8A5D2DC9027B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E2258890-5B22-43D9-AF6E-4CC6D67DC6CA} = {369CB01D-A1A7-72D2-AABC-3F0945D148A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {390DB2DA-789F-4626-9A0B-E7D30E1A2E9D}

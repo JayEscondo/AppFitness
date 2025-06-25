@@ -15,9 +15,11 @@
             <label class="text-black" asp-for="exo">Choix des exercices</label>
             <div class="exo-select mb-2">
                 <select class="form-select"
+                        id="exoSelect"
                         name="exo[0]" asp-items="@ViewBag.listeExo">
                     <option>-- choisir un exercice --</option>
                 </select>
+                <span id="exoI" class="text-muted"></span>
             </div>
         </div>
         <div>

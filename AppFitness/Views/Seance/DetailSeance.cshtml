@@ -28,6 +28,12 @@
         </div>
     </div>
 </div>
+@if (TempData["Erreur"] != null)
+{
+    <div class="alert alert-danger">
+        <h4 class="text-black">@TempData["Erreur"]</h4>
+    </div>
+}
 <div class="d-flex justify-content-between" style="margin-bottom: 20px;">
     <button role="button" class="btn btn-success" onclick="AddExo(@NomSId)">+ Ajouter un exercice</button>
     <button class="btn btn-secondary">Imprimer</button>
@@ -166,7 +172,7 @@
             </button>
         </form>
         <form asp-action="DeleteExercice" method="post">
-            <input type="hidden" name="exo" value="@Model[i].ExerciceId" />
+            <input type="hidden" name="exoId" value="@Model[i].ExerciceId" />
             <input type="hidden" name="pageIndex" value="@Model[0].NomSeanceId" />
             <button role="button" class="btn btn-danger">
                 Supprimer cet exercice

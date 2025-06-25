@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DbFitness")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+50ebfa1ba625a0a9e558019c0477e0b876a1686b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5cc05374f930c594014a520e5f640b82c89a1335")]
 [assembly: System.Reflection.AssemblyProductAttribute("DbFitness")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DbFitness")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
