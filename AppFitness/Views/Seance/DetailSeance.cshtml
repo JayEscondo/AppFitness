@@ -81,6 +81,9 @@
         <div class="d-flex justify-content-between align-items-center" style="margin-bottom: 15px;">
             <h4 class="text-white">@seance.Exercice.NomExercice.Nom</h4>
             <form asp-action="StartExercice" method="post">
+                <input type="hidden" name="pageIndex" value="@Model[0].NomSeanceId" />
+                <input type="hidden" name="NomExoId" value="@Model[i].Exercice.NomExerciceId" />
+                <input type="hidden" name="Date" value="@Model[i].Exercice.Date" />
                 <button class="btn btn-info">Commencer cet exercice</button>
             </form>
         </div>

@@ -2,6 +2,7 @@
 using EntityFitness.MyEntities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing.Constraints;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppFitness.Controllers
@@ -260,10 +261,62 @@ namespace AppFitness.Controllers
         }
 
         [HttpPost]
-        public IActionResult StartExercice(int pageIndex) 
+        public IActionResult StartExercice(int pageIndex, int NomExoId, string date)
         {
+            string dateAuj = DateTime.Now.ToString("dd.MM.yyyy");
+            if (date != dateAuj)
+            {
+                Serie serie = new Serie();
+                List<Serie> listeSerie = _context.Series.ToList();
+                bool IndexNonUtiliser;
+                int index = 0;
+                serie.Poids = 0;
+                serie.Rep = 1;
+                for (int i = 1; i < 10000; i++)
+                {
+                    IndexNonUtiliser = listeSerie.Any(s => s.Id == i);
+                    if (IndexNonUtiliser == false)
+                    {
+                        index = i;
+                        i = 10000 - 1;
+                    }
+                }
+                serie.Id = index;
+                _context.Series.Add(serie);
+                _context.SaveChanges();
 
-            return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+                Exercice exo = new Exercice();
+                exo.NomExerciceId = NomExoId;
+                exo.SerieId = serie.Id;
+                exo.Date = DateTime.Now.ToString("dd.MM.yyyy");
+                exo.NumSerie = 1;
+                List<Exercice> listeExo = _context.Exercices.ToList();
+                bool IndexNonUtiliser1;
+                int index1 = 0;
+                for (int i = 1; i < 10000; i++)
+                {
+                    IndexNonUtiliser1 = listeExo.Any(s => s.Id == i);
+                    if (IndexNonUtiliser1 == false)
+                    {
+                        index1 = i;
+                        i = 10000 - 1;
+                    }
+                }
+                exo.Id = index1;
+                _context.Exercices.Add(exo);
+                _context.SaveChanges();
+
+                Seance seance = new Seance();
+                seance.ExerciceId = exo.Id;
+                seance.NomSeanceId = pageIndex;
+                _context.Seances.Add(seance);
+                _context.SaveChanges();
+                return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+            }
+            else 
+            {
+                return RedirectToAction("DetailSeance", "Seance", new { id = pageIndex });
+            }
         }
     }
 }
